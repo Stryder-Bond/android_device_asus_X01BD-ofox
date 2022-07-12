@@ -1,9 +1,9 @@
 #!/sbin/sh
 
-mount -t ext4 /dev/block/bootdevice/by-name/system /system
+mkdir /s && mount -t ext4 /dev/block/bootdevice/by-name/system /s
 mount -t ext4 /dev/block/bootdevice/by-name/persist /persist
 
-asus_prop=$(grep -E 'asus.sku|asus.version' /system/build.prop)
+asus_prop=$(grep -E 'asus.sku|asus.version' /s/system/build.prop)
 
 [ -n "$asus_prop" ] && echo "$asus_prop" | sed -e 's/ /\n/' > /persist/asus.prop
 
@@ -16,4 +16,4 @@ if [ -f /persist/asus.prop ]; then
 fi
 
 umount /persist
-umount /system
+umount /s && rm -r /s
