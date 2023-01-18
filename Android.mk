@@ -26,7 +26,9 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),X01BD)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+
+  subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
+  $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
 include $(CLEAR_VARS)
 
 # Hack some props to allow stock ROM flashing
