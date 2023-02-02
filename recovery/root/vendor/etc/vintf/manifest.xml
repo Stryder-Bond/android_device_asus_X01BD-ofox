@@ -1,4 +1,13 @@
-<manifest version="1.0" type="device" target-level="2">
+<!--
+    This is a skeleton device manifest. Notes:
+    1. If a HAL is supported in both hwbinder and passthrough transport,
+       only hwbinder is shown.
+    2. It is likely that HALs in passthrough transport does not have
+       <interface> declared; users will have to write them by hand.
+    3. A HAL with lower minor version can be overridden by a HAL with
+       higher minor version if they have the same name and major version.
+-->
+<manifest version="1.0" type="device" target-level="3">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>

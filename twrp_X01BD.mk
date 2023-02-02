@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The Android Open Source Project
+# Copyright (C) 2017-2022 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@
 # Release name
 PRODUCT_RELEASE_NAME := X01BD
 
-$(call inherit-product, build/target/product/embedded.mk)
+$(call inherit-product, build/target/product/aosp_base.mk)
+$(call inherit-product, build/target/product/core_64_bit_only.mk)
+
+# Inherit from X00TD device
+$(call inherit-product, device/asus/X01BD/device.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
