@@ -74,7 +74,6 @@ BOARD_KERNEL_CMDLINE := \
 	firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 \
 	androidboot.selinux=permissive \
 	printk.devkmsg=on
-
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -112,6 +111,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_PYTHON := true
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_IGNORE_MISC_WIPE_DATA := true
