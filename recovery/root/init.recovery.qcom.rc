@@ -1,26 +1,19 @@
 import /init.recovery.qcom_decrypt.rc
 
-on early-init
-    mkdir /firmware 0771 system system
+on boot
+    start health-hal-2-1
+
+on init
+    exec u:r:recovery:s0 -- /system/bin/detect-dynamic-partitions.sh
+    exec u:r:recovery:s0 -- /system/bin/resetprop ro.boot.verifiedbootstate orange
+    setprop sys.usb.configfs 1
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
+    write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
+    wait /sys/class/udc/${ro.boot.usbcontroller} 1
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    install_keyring
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower uid=1000 gid=1000 dmask=227 fmask=337
-
-on boot
-    # Workaround for adb not coming up
-    setprop sys.usb.config mtp,adb
-    setprop sys.usb.config adb
-
-    # Double tap to wake
-    chown system system /sys/kernel/touchpanel/dclicknode
-    chmod 0660 /sys/kernel/touchpanel/dclicknode
-    write /sys/kernel/touchpanel/dclicknode 1
-
-# Set ASUS-specific SKU and version
-# Apparently they need to be set late at boot; weird flex but OK
-on property:init.svc.adbd=stopped
-    exec u:r:recovery:s0 root root -- /system/bin/set_version.sh
-
