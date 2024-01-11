@@ -25,6 +25,9 @@
 
 DEVICE_PATH := device/asus/X01BD
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := ASUS_X01BD,X01BD,X01BDA
 
