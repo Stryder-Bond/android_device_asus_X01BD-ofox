@@ -29,14 +29,14 @@ PRODUCT_RELEASE_NAME := X01BD
 $(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := X01BD
-PRODUCT_NAME := omni_X01BD
-PRODUCT_BRAND := asus
+PRODUCT_NAME := twrp_X01BD
+PRODUCT_BRAND := Asus
 PRODUCT_MODEL := Asus Zenfone Max Pro M2
-PRODUCT_MANUFACTURER := asus
+PRODUCT_MANUFACTURER := Asus
 TARGET_VENDOR_PRODUCT_NAME := X01BD
 TARGET_VENDOR_DEVICE_NAME := X01BD
 
