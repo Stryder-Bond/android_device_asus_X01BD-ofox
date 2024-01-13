@@ -86,5 +86,3 @@ TW_USE_TOOLBOX := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_EXCLUDE_TWRPAPP := true
-
-TARGET_SYSTEM_PROP := device/asus/X01BD/system.prop
