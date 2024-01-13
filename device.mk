@@ -7,6 +7,10 @@
 # Api
 PRODUCT_SHIPPING_API_LEVEL := 27
 
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
 # QCOM Decryption
 PRODUCT_PACKAGES += \
     qcom_decrypt \
