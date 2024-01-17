@@ -1,4 +1,4 @@
-TWRP Device Tree for Asus Zenfone Max Pro M2 (X01BD)
+OFOX Device Tree for Asus Zenfone Max Pro M2 (X01BD)
 ===========================================
 
 The Asus Zenfone Max Pro M2 (codenamed _"X01BD"_) is a mid-range smartphone from Asus.
