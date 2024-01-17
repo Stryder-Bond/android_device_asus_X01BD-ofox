@@ -3,7 +3,7 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # mount point   fstype  device                                        device2                                       flags
-/data		ext4	/dev/block/bootdevice/by-name/userdata                                                      fsflags="discard"
+/data		ext4	/dev/block/bootdevice/by-name/userdata                                                      flags=fileencryption=ice;fsflags="discard"
 /metadata       ext4    /dev/block/bootdevice/by-name/asusfw                                                        flags=display="Metadata";fsflags="discard"
 /cache          ext4    /dev/block/bootdevice/by-name/cache                                                         flags=display="Cache";canbewiped;wipeingui;wipeduringfactoryreset
 /firmware       vfat    /dev/block/bootdevice/by-name/modem
