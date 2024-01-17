@@ -76,6 +76,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export FOX_VERSION=R12.1
         export FOX_BUILD_TYPE="Stable
 
+        # Removes the loop block errors after flashing ZIPs (Workaround)
+        export OF_LOOP_DEVICE_ERRORS_TO_LOG=1
+
 	# vanilla build
 	export OF_VANILLA_BUILD=1
         export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
