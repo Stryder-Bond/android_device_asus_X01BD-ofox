@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The Android Open Source Project
+# Copyright (C) 2024 The Android Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -30,11 +30,15 @@ PRODUCT_PACKAGES += \
 
 # Take a few libraries from sources
 TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hidl.base@1.0 \
+    libicuuc \
     libion \
     libxml2 \
     vendor.display.config@1.0
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libicuuc.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so
