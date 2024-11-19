@@ -80,7 +80,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export OF_LOOP_DEVICE_ERRORS_TO_LOG=1
 
 	# vanilla build
-	export OF_VANILLA_BUILD=1
+	export FOX_VANILLA_BUILD=1
         export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 
 	# dispense with the entire OTA menu
